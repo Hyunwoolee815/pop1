@@ -35,9 +35,9 @@ if st.button('조회하기'):
             log_no = item.get('logNo')  # 해당 포스트의 logNo를 가져옴
             view_count = item.get('viewCount', 0)  # viewCount가 없을 경우 기본값 0
 
-            # 포스트 URL 생성
-            post_url = f"https://m.blog.naver.com/{log_no}"
-
+            # 포스트 URL 생성 (사용자가 입력한 blog_id와 logNo를 함께 사용)
+            post_url = f"https://m.blog.naver.com/{blog_id}/{log_no}"
+            
             # Streamlit으로 출력 (제목을 링크로 제공)
             st.markdown(f"**{idx}위: [제목: {title}]({post_url})**")
             st.write(f"주간 조회수: {view_count}")
